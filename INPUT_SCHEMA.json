@@ -13,6 +13,22 @@
                 "ILnaIxL36Qd9tLgUh"
             ]
         },
+        "resurrectRuns": {
+            "title": "Resurrect runs after rebirth",
+            "type": "boolean",
+            "description": "Will resurrect the runs for which requests have been rebirth"
+        },
+        "resurrectRunsConcurrency": {
+            "title": "Concurrency of resurrected runs",
+            "type": "integer",
+            "description": "Will rebirth requests with this retryCount found in the log.",
+            "default": 1
+        },
+        "retryCount": {
+            "title": "Retry count of requests to rebirth (optional)",
+            "type": "integer",
+            "description": "Will rebirth requests with this retryCount found in the log."
+        },
         "actorOrTaskId": {
             "title": "Actor or task ID",
             "type": "string",
@@ -32,22 +48,6 @@
             "type": "string",
             "description": "Optional date to limit to which date the run will be scanned. The date should be in ISO standard (e.g. 2020-10-15)",
             "editor": "textfield"
-        },
-        "retryCount": {
-            "title": "Retry count of requests to rebirth (optional)",
-            "type": "integer",
-            "description": "Will rebirth requests with this retryCount found in the log."
-        },
-        "resurrectRuns": {
-            "title": "Resurrect runs after rebirth",
-            "type": "boolean",
-            "description": "Will resurrect the runs for which requests have been rebirth"
-        },
-        "resurrectRunsConcurrency": {
-            "title": "Concurrency of resurrected runs",
-            "type": "integer",
-            "description": "Will rebirth requests with this retryCount found in the log.",
-            "default": 1
         }
     }
 }

@@ -1,0 +1,53 @@
+{
+    "title": "CheerioCrawler Template",
+    "description": "Supply either taskId/actorId or direct runIds",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "runIds": {
+            "title": "Rud IDs",
+            "type": "array",
+            "description": "List of runs to check.",
+            "editor": "stringList",
+            "prefill": [
+                "ILnaIxL36Qd9tLgUh"
+            ]
+        },
+        "actorOrTaskId": {
+            "title": "Actor or task ID",
+            "type": "string",
+            "description": "Actor or task ID",
+            "editor": "textfield",
+            "sectionCaption": "Scan actor or task",
+            "sectionDescription": "Provide an ID of an actor or task. All runs of that actor or task will be scanned. Optionally you can restrict the date when the runs started."
+        },
+        "dateFrom": {
+            "title": "Date from",
+            "type": "string",
+            "description": "Optional date to limit from which date the run will be scanned. The date should be in ISO standard (e.g. 2020-10-01)",
+            "editor": "textfield"
+        },
+        "dateTo": {
+            "title": "Date to",
+            "type": "string",
+            "description": "Optional date to limit to which date the run will be scanned. The date should be in ISO standard (e.g. 2020-10-15)",
+            "editor": "textfield"
+        },
+        "retryCount": {
+            "title": "Retry count of requests to rebirth (optional)",
+            "type": "integer",
+            "description": "Will rebirth requests with this retryCount found in the log."
+        },
+        "resurrectRuns": {
+            "title": "Resurrect runs after rebirth",
+            "type": "boolean",
+            "description": "Will resurrect the runs for which requests have been rebirth"
+        },
+        "resurrectRunsConcurrency": {
+            "title": "Concurrency of resurrected runs",
+            "type": "integer",
+            "description": "Will rebirth requests with this retryCount found in the log.",
+            "default": 1
+        }
+    }
+}

@@ -26,6 +26,8 @@ Apify.main(async () => {
     if (typeof retryCount === 'number') {
         regexes.push(`"retryCount":${retryCount}`);
     }
+
+    log.info(`Calling lukaskrivka/log-scanner actor to find request IDs in run logs`);
     const { defaultDatasetId } = await Apify.call(
         'lukaskrivka/log-scanner',
         {

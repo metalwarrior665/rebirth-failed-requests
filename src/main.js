@@ -111,6 +111,8 @@ Apify.main(async () => {
         const resurrectCrawler = new Apify.BasicCrawler({
             maxConcurrency: resurrectRunsConcurrency,
             requestList: resurrectRequestList,
+            // We wait infinitely
+            handleRequestTimeoutSecs: 999999,
             handleRequestFunction: async ({ request }) => {
                 const runId = request.uniqueKey;
                 const runClient = client.run(runId);

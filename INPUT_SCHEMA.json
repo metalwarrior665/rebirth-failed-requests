@@ -17,7 +17,8 @@
             "title": "Resurrect runs after rebirth",
             "type": "boolean",
             "description": "Will resurrect the runs for which requests have been rebirth",
-            "default": false
+            "default": false,
+            "sectionCaption": "Run resurrection (optional)",
         },
         "resurrectRunsConcurrency": {
             "title": "Concurrency of resurrected runs",
@@ -25,10 +26,11 @@
             "description": "Will rebirth requests with this retryCount found in the log.",
             "default": 1
         },
-        "retryCount": {
-            "title": "Retry count of requests to rebirth (optional)",
-            "type": "integer",
-            "description": "Will rebirth requests with this retryCount found in the log."
+        "resurrectBuildName": {
+            "title": "Resurrect build name (optional override)",
+            "type": "string",
+            "description": "You can override the current build of the run",
+            "editor": "textfield"
         },
         "actorOrTaskId": {
             "title": "Actor or task ID",

@@ -1,7 +1,7 @@
 import { Actor } from 'apify';
 import { log, RequestList, BasicCrawler, sleep } from 'crawlee';
 
-import { getRunsForActorOrTask } from './get-runs.ts';
+import { getRunsForActorOrTask } from './get-runs.js';
 
 interface Input {
     runIds: string[],

@@ -18,7 +18,7 @@
             "type": "boolean",
             "description": "Will resurrect the runs for which requests have been rebirth",
             "default": false,
-            "sectionCaption": "Run resurrection (optional)",
+            "sectionCaption": "Run resurrection (optional)"
         },
         "resurrectRunsConcurrency": {
             "title": "Concurrency of resurrected runs",

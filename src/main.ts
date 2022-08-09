@@ -29,7 +29,8 @@ Actor.main(async () => {
         token,
     } = input;
 
-    const client = Actor.newClient({ token });
+    const clientOptions = token ? { token } : {};
+    const client = Actor.newClient(clientOptions);
 
     if (actorOrTaskId) {
         const runs = await getRunsForActorOrTask({ actorOrTaskId, dateFrom, dateTo, client });

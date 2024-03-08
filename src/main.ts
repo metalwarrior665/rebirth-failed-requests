@@ -86,8 +86,8 @@ Actor.main(async () => {
                 for (let request of failedRequests) {
                     request.retryCount = 0;
                     request.errorMessages = [];
-                    // @ts-ignore
-                    request.handledAt = null;
+                    // We update the whole request object so we just need to delete this field
+                    delete request.handledAt;
                     await client.requestQueue(requestQueueId).updateRequest(request)
                 }
                 log.info(`[RUN: ${runId}][PAGE: ${page}]: Rebirthed ${failedRequests.length} requests`);

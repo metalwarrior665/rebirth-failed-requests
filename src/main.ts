@@ -121,11 +121,11 @@ Actor.main(async () => {
 
     log.info(`Rebirthing requests finished`);
 
-    const runsToResurrect = resurrectOnlyRebirthedRuns
-        // Resurrect only rebirthed runs (runs that had at least 1 failed request)
-        ? Object.keys(runsStats).filter(id => runsStats[id].rebirth > 0)
-        // Resurrect all loaded runs
-        : Object.keys(runsStats).filter(id => runsStats[id].loaded > 0);
+    const runsToResurrect = Object.keys(runsStats).filter((id) =>
+        resurrectOnlyRebirthedRuns
+            ? runsStats[id].rebirth > 0
+            : runsStats[id].loaded > 0
+    );
 
     if (resurrectRuns && runsToResurrect.length > 0) {
         log.info(`${runsToResurrect.length} runs with rebirth requests to be resurrected`);

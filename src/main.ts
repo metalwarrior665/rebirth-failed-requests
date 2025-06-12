@@ -9,6 +9,7 @@ interface Input {
     dateFrom: string | undefined,
     dateTo: string | undefined,
     resurrectRuns: boolean,
+    resurrectOnlyRebirthedRuns: boolean,
     resurrectRunsConcurrency: number,
     resurrectBuildName: string | undefined,
     token: string | undefined,
@@ -23,6 +24,7 @@ Actor.main(async () => {
         dateFrom,
         dateTo,
         resurrectRuns = false,
+        resurrectOnlyRebirthedRuns = true,
         resurrectRunsConcurrency = 1,
         resurrectBuildName,
         // Just for local usage
@@ -119,7 +121,11 @@ Actor.main(async () => {
 
     log.info(`Rebirthing requests finished`);
 
-    const runsToResurrect = Object.keys(runsStats).filter((runId) => runsStats[runId].rebirth > 0);
+    const runsToResurrect = resurrectOnlyRebirthedRuns
+        // Resurrect only rebirthed runs (runs that had at least 1 failed request)
+        ? Object.keys(runsStats).filter(id => runsStats[id].rebirth > 0)
+        // Resurrect all loaded runs
+        : Object.keys(runsStats).filter(id => runsStats[id].loaded > 0);
 
     if (resurrectRuns && runsToResurrect.length > 0) {
         log.info(`${runsToResurrect.length} runs with rebirth requests to be resurrected`);

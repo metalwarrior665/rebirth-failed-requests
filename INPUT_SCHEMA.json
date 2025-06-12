@@ -9,9 +9,7 @@
             "type": "array",
             "description": "List of runs to check.",
             "editor": "stringList",
-            "prefill": [
-                "ILnaIxL36Qd9tLgUh"
-            ]
+            "prefill": ["ILnaIxL36Qd9tLgUh"]
         },
         "resurrectRuns": {
             "title": "Resurrect runs after rebirth",
@@ -31,6 +29,12 @@
             "type": "string",
             "description": "You can override the current build of the run",
             "editor": "textfield"
+        },
+        "resurrectOnlyRebirthedRuns": {
+            "title": "Resurrect only rebirthed runs",
+            "type": "boolean",
+            "description": "If checked the actor resurrects only runs that contained at least one failed request that was rebirthed. If not checked it resurrects every run that was processed, even when no rebirths were necessary.",
+            "default": true
         },
         "actorOrTaskId": {
             "title": "Actor or task ID",
